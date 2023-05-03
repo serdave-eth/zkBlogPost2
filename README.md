@@ -15,23 +15,23 @@ This respository contains 4 folders:
 # How to run the code
 ## Verifier setup
 
-circom test/circuits/sha256_test448.circom --r1cs --wasm
+- circom test/circuits/sha256_test448.circom --r1cs --wasm
 
-snarkjs plonk setup sha256_test448.r1cs powersOfTau28_hez_final_18.ptau circuit_final.zkey
+- snarkjs plonk setup sha256_test448.r1cs powersOfTau28_hez_final_18.ptau circuit_final.zkey
 
 You'll need to download the powersOfTau_hez_final_18.ptau file here: https://www.google.com/url?q=https://hermez.s3-eu-west-1.amazonaws.com/powersOfTau28_hez_final_18.ptau&sa=D&source=docs&ust=1683154161962057&usg=AOvVaw2JmddQTkLDk99qTNQKNZ3j
 
 ## Prover setup
 
-node test/generate_hash_input.js  
+- node test/generate_hash_input.js  
 
-snarkjs wtns calculate sha256_test448_js/sha256_test448.wasm test_input.json witness.wtns
+- snarkjs wtns calculate sha256_test448_js/sha256_test448.wasm test_input.json witness.wtns
 
 ## Generate proof and verify proof
 
-snarkjs plonk prove sha256_final.zkey witness.wtns proof.json public.json
+- snarkjs plonk prove sha256_final.zkey witness.wtns proof.json public.json
 
-snarkjs zkey export verificationkey sha256_final.zkey verification_key.json
+- snarkjs zkey export verificationkey sha256_final.zkey verification_key.json
 
 
 

@@ -4,7 +4,7 @@ The prover knows a number "x" such that SHA256(x) = w
 
 The majority of files found here are a subset of the CircomLib repository: https://github.com/iden3/circom
 
-# Organisation
+# Organization
 
 This respository contains 4 folders:
 - `circuits`: it contains the implementation of SHA256 in circom language.
@@ -18,6 +18,8 @@ This respository contains 4 folders:
 circom test/circuits/sha256_test448.circom --r1cs --wasm
 
 snarkjs plonk setup sha256_test448.r1cs powersOfTau28_hez_final_18.ptau circuit_final.zkey
+
+You'll need to download the powersOfTau_hez_final_18.ptau file here: https://www.google.com/url?q=https://hermez.s3-eu-west-1.amazonaws.com/powersOfTau28_hez_final_18.ptau&sa=D&source=docs&ust=1683154161962057&usg=AOvVaw2JmddQTkLDk99qTNQKNZ3j
 
 ## Prover setup
 

@@ -3,6 +3,7 @@ const path = require("path");
 const crypto = require("crypto");
 const F1Field = require("ffjavascript").F1Field;
 const Scalar = require("ffjavascript").Scalar;
+const fs = require("fs");
 exports.p = Scalar.fromString("21888242871839275222246405745257275088548364400416034343698204186575808495617");
 const Fr = new F1Field(exports.p);
 
@@ -108,8 +109,15 @@ describe("SHA256 test", function () {
         const arrIn = buffer2bitArray(b);
 
         const witness = await cir.calculateWitness({ "in": arrIn }, true);
-
         const arrOut = witness.slice(1, 257);
+        //Testing
+        fs.writeFile('output.json', JSON.stringify(arrOut), err => {
+            if (err) {
+              console.error(err)
+              return
+            }
+            console.log('Data logged to output.json')
+          });
         const hash2 = bitArray2buffer(arrOut).toString("hex");
 
         assert.equal(hash, hash2);
